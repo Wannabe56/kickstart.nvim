@@ -222,6 +222,7 @@ do
   -- Move line up or down
   vim.keymap.set('n', '<A-up>', '<cmd>:m -2<CR>')
   vim.keymap.set('n', '<A-down>', '<cmd>:m +1<CR>')
+  vim.keymap.set("n", "<leader>l", "<cmd>LazyGit<CR>", { silent = true })
 
   -- TIP: Disable arrow keys in normal mode
   -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -379,6 +380,8 @@ do
       { 'gr', group = 'LSP Actions', mode = { 'n' } },
     },
   }
+
+  vim.pack.add { gh 'kdheepak/lazygit.nvim' }
 
   -- [[ Colorscheme ]]
   -- You can easily change to a different colorscheme.
