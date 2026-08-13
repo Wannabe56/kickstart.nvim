@@ -126,6 +126,11 @@ do
 
   -- Enable break indent
   vim.o.breakindent = true
+  vim.o.shiftwidth = 4
+  vim.o.smarttab = true
+  vim.o.expandtab = true
+  vim.o.tabstop = 8
+  vim.o.softtabstop = 0
 
   -- Enable undo/redo changes even after closing and reopening a file
   vim.o.undofile = true
@@ -348,9 +353,6 @@ do
   --
   -- We first install it from https://github.com/NMAC427/guess-indent.nvim
   -- and then call its `setup()` function to start it with default settings.
-  vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
-  require('guess-indent').setup {}
-
   -- Here is a more advanced configuration example that passes options to `gitsigns.nvim`
   --
   -- See `:help gitsigns` to understand what each configuration key does.
