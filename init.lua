@@ -227,7 +227,7 @@ do
   -- Move line up or down
   vim.keymap.set('n', '<A-up>', '<cmd>:m -2<CR>')
   vim.keymap.set('n', '<A-down>', '<cmd>:m +1<CR>')
-  vim.keymap.set("n", "<leader>l", "<cmd>LazyGit<CR>", { silent = true })
+  vim.keymap.set('n', '<leader>l', '<cmd>LazyGit<CR>', { silent = true })
 
   -- TIP: Disable arrow keys in normal mode
   -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -702,7 +702,31 @@ do
     -- clangd = {},
     -- gopls = {},
     pyright = {},
-    lemminx = {},
+    lemminx = {
+      ---@type vim.lsp.Config
+      cmd = { 'lemminx' },
+      filetypes = { 'xml', 'xsd', 'xsl', 'xslt', 'svg' },
+      root_markers = { '.git' },
+      settings = { -- All possible settings: https://github.com/redhat-developer/vscode-xml/blob/main/docs/Formatting.md
+        xml = {
+          format = {
+            enabled = true,
+            legacy = false,
+            emptyElements = 'collapse',
+            enforceQuoteStyle = 'preferred',
+            preserveAttributeLineBreaks = false,
+            preservedNewlines = 0,
+            splitAttributes = 'splitNewLine', -- preserve, splitNewLine, alignWithFirstAttr
+            splitAttributesIndentSize = 1,
+            joinCDATALines = true,
+            joinCommentLines = false,
+            joinContentLines = true,
+            spaceBeforeEmptyCloseTag = true,
+          },
+        },
+      },
+    },
+
     -- rust_analyzer = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -758,7 +782,7 @@ do
 
   -- Translates between nvim-lspconfig server names and mason.nvim package names (e.g. lua_ls <-> lua-language-server)
   require('mason-lspconfig').setup {
-    automatic_enable = false, -- Change this to true if you want to automatically enable servers that are installed manually (e.g. via :Mason / :MasonInstall)
+    automatic_enable = true, -- Change this to true if you want to automatically enable servers that are installed manually (e.g. via :Mason / :MasonInstall)
   }
 
   -- Ensure the servers and tools above are installed
@@ -809,10 +833,10 @@ do
     formatters_by_ft = {
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
-      python = { "autopep8", "black" },
+      python = { 'autopep8', 'black' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
-      json = { "prettier" },
+      json = { 'prettier' },
     },
   }
 
