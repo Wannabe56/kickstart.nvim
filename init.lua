@@ -805,6 +805,36 @@ do
   end
 end
 
+vim.pack.add { gh 'windwp/nvim-ts-autotag' }
+require('nvim-ts-autotag').setup {
+  opts = {
+    -- Defaults
+    enable_close = true, -- Auto close tags
+    enable_rename = true, -- Auto rename pairs of tags
+    enable_close_on_slash = true, -- Auto close on trailing </
+  },
+  aliases = { 
+    ['xsl'] = 'xml',
+    ['xslt'] = 'xml',
+    ['svg'] = 'xml',
+  },
+  -- Also override individual filetype configs, these take priority.
+  -- Empty by default, useful if one of the "opts" global settings
+  -- doesn't work well in a specific filetype
+  per_filetype = {
+    ['xsl'] = {
+      enable_close = true,
+      enable_rename = true,
+      enable_close_on_slash = true,
+    },
+    ['xslt'] = {
+      enable_close = true,
+      enable_rename = true,
+      enable_close_on_slash = true,
+    },
+  },
+}
+
 -- ============================================================
 -- SECTION 7: FORMATTING
 -- conform.nvim setup and keymap
