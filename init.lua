@@ -224,9 +224,7 @@ do
   -- or just use <C-\><C-n> to exit terminal mode
   vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-  -- Move line up or down
-  vim.keymap.set('n', '<A-up>', '<cmd>:m -2<CR>')
-  vim.keymap.set('n', '<A-down>', '<cmd>:m +1<CR>')
+  -- Add LazyGit to leader menu
   vim.keymap.set('n', '<leader>l', '<cmd>LazyGit<CR>', { silent = true })
 
   -- TIP: Disable arrow keys in normal mode
@@ -432,7 +430,9 @@ do
     n_lines = 500,
   }
 
-  -- Add/delete/replace surroundings (brackets, quotes, etc.)
+  require('mini.move').setup()
+
+  -- Add/delete/replace surroundings ( brackets, quotes, etc. )
   --
   -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
   -- - sd'   - [S]urround [D]elete [']quotes
@@ -813,7 +813,7 @@ require('nvim-ts-autotag').setup {
     enable_rename = true, -- Auto rename pairs of tags
     enable_close_on_slash = true, -- Auto close on trailing </
   },
-  aliases = { 
+  aliases = {
     ['xsl'] = 'xml',
     ['xslt'] = 'xml',
     ['svg'] = 'xml',
