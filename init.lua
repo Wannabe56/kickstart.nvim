@@ -814,7 +814,7 @@ do
             emptyElements = 'collapse',
             enforceQuoteStyle = 'preferred',
             preserveAttributeLineBreaks = false,
-            preservedNewlines = 0,
+            preservedNewlines = 1,
             splitAttributes = 'splitNewLine', -- preserve, splitNewLine, alignWithFirstAttr
             splitAttributesIndentSize = 1,
             joinCDATALines = true,
