@@ -189,6 +189,8 @@ do
   -- Clear highlights on search when pressing <Esc> in normal mode
   --  See `:help hlsearch`
   vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+  -- Cylce through open tabs
+  vim.keymap.set('n', ']n', '<cmd>tabnext<CR>', { desc = 'Next tab' })
 
   -- Diagnostic Config & Keymaps
   --  See `:help vim.diagnostic.Opts`
