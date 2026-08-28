@@ -1077,6 +1077,7 @@ do
   ---@param language string
   local function treesitter_try_attach(buf, language)
     -- Check if a parser exists and load it
+    vim.treesitter.language.register('xml', { 'svg', 'xslt' })
     if not vim.treesitter.language.add(language) then return end
     -- Enable syntax highlighting and other treesitter features
     vim.treesitter.start(buf, language)
