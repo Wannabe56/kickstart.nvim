@@ -1,0 +1,19 @@
+{
+  "name": "xsl-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "xslt"
+        ],
+        "path": "./xsl.json"
+      },
+      {
+        "language": [
+          "lua"
+        ],
+        "path": "./lua.json"
+      }
+    ]
+  }
+}
