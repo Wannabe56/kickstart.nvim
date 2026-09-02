@@ -43,6 +43,11 @@
     "body": ["<xsl:template name=\"$1\">", "  $2", "</xsl:template>"],
     "description": "XSL Template"
   },
+  "For each": {
+    "prefix": "foreach",
+    "body": ["<xsl:for-each select=\"$1\">", "  $2", "</xsl:for-each>"],
+    "description": "XSL For Each"
+  },
   "Value of": {
     "prefix": "val",
     "body": ["<xsl:value-of select=\"$1\" />"],
