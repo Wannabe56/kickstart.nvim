@@ -55,7 +55,7 @@
   },
   "Apply": {
     "prefix": "apply",
-    "body": ["<xsl:apply-templates match=\"$1\" />"],
+    "body": ["<xsl:apply-templates select=\"$1\" />"],
     "description": "XSL apply templates"
   },
   "Call": {
