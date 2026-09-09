@@ -805,7 +805,7 @@ do
     lemminx = {
       ---@type vim.lsp.Config
       cmd = { 'lemminx' },
-      filetypes = { 'xml', 'xsd', 'xsl', 'xslt', 'svg' },
+      filetypes = { 'xml', 'xsd', 'xslt', 'svg' },
       root_markers = { '.git' },
       settings = { -- All possible settings: https://github.com/redhat-developer/vscode-xml/blob/main/docs/Formatting.md
         xml = {
@@ -914,7 +914,6 @@ require('nvim-ts-autotag').setup {
     enable_close_on_slash = true, -- Auto close on trailing </
   },
   aliases = {
-    ['xsl'] = 'xml',
     ['xslt'] = 'xml',
     ['svg'] = 'xml',
   },
@@ -922,11 +921,6 @@ require('nvim-ts-autotag').setup {
   -- Empty by default, useful if one of the "opts" global settings
   -- doesn't work well in a specific filetype
   per_filetype = {
-    ['xsl'] = {
-      enable_close = true,
-      enable_rename = true,
-      enable_close_on_slash = true,
-    },
     ['xslt'] = {
       enable_close = true,
       enable_rename = true,
@@ -963,12 +957,12 @@ do
     formatters_by_ft = {
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
-      python = { 'autopep8', 'black', 'stop_after_first' },
+      python = { 'autopep8', 'black', stop_after_first = true },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
-      json = { 'prettierd', 'prettier', stop_after_first = true },
-      html = { 'prettierd', 'prettier', stop_after_first = true },
-      xhtml = { 'prettierd', 'prettier', stop_after_first = true },
+      json = { 'prettier', 'prettierd', stop_after_first = true },
+      html = { 'prettier', 'prettierd', stop_after_first = true },
+      xhtml = { 'prettier', 'prettierd', stop_after_first = true },
     },
   }
 
@@ -979,7 +973,6 @@ end
 -- SECTION 8: AUTOCOMPLETE & SNIPPETS
 -- blink.cmp and luasnip setup
 -- ============================================================
-vim.o.dictionary=vim.g.xmldata_xsl
 do
   -- [[ Snippet Engine ]]
 
